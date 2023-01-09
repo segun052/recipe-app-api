@@ -69,14 +69,14 @@ class PublicUserApiTests(TestCase):
     def test_create_token_for_user(self):
         """ Test generates token for valid credentials"""
         user_details = {
-            "name" : "Test Name",
+            "name": "Test Name",
             "email": "test@example.com",
             "password": "test-user-password123",
         }
         create_user(**user_details)
 
         payload = {
-            "email" : user_details["email"],
+            "email": user_details["email"],
             "password": user_details["password"],
         }
         res = self.client.post(TOKEN_URL, payload)
@@ -96,7 +96,7 @@ class PublicUserApiTests(TestCase):
 
     def test_create_token_blank_password(self):
         """ Test posting a bank password return an error """
-        payload = {"email" : "test@example.com", "password": ""}
+        payload = {"email": "test@example.com", "password": ""}
         res = self.client.post(TOKEN_URL, payload)
 
         self.assertNotIn("token", res.data)
@@ -107,6 +107,7 @@ class PublicUserApiTests(TestCase):
         res = self.client.get(ME_URL)
 
         self.assertEqual(res.status_code, status.HTTP_401_UNAUTHORIZED)
+
 
 class PrivateUserApiTests(TestCase):
     """Test API requests that require authentication."""

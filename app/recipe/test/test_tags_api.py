@@ -13,7 +13,7 @@ from core.models import Tag
 from recipe.serializers import TagSerializer
 
 
-TAGS_URL=reverse("recipe:tag-list")
+TAGS_URL = reverse("recipe:tag-list")
 
 
 def detail_url(tag_id):
@@ -76,7 +76,7 @@ class PrivateTagsApiTests(TestCase):
         """ Test updating a tag """
         tag = Tag.objects.create(user=self.user, name="After Dinner")
 
-        payload = {"name":"Dessert"}
+        payload = {"name": "Dessert"}
         url = detail_url(tag.id)
         res = self.client.patch(url, payload)
 

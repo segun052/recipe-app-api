@@ -16,6 +16,7 @@ from core.models import (
 
 from recipe import serializers
 
+
 class RecipeViewSet(viewsets.ModelViewSet):
     """ view for manage recipe APIs. """
     serializer_class = serializers.RecipeDetailSerializer
@@ -40,9 +41,9 @@ class RecipeViewSet(viewsets.ModelViewSet):
 
 
 class TagViewSet(mixins.DestroyModelMixin,
-                mixins.UpdateModelMixin,
-                mixins.ListModelMixin,
-                viewsets.GenericViewSet):
+                 mixins.UpdateModelMixin,
+                 mixins.ListModelMixin,
+                 viewsets.GenericViewSet):
     """Manage Tags in the database """
     serializer_class = serializers.TagSerializer
     queryset = Tag.objects.all()

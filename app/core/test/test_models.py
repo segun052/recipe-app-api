@@ -23,7 +23,7 @@ class ModelTests(TestCase):
         password = "testpass123"
         user = get_user_model().objects.create_user(
             email=email,
-            password = password
+            password=password
         )
 
         self.assertEqual(user.email, email)
@@ -63,8 +63,8 @@ class ModelTests(TestCase):
             "testpass123",
         )
         recipe = models.Recipe.objects.create(
-            user = user,
-            title = "Sample recipe name",
+            user=user,
+            title="Sample recipe name",
             time_minutes=5,
             price=Decimal("5.50"),
             description="Sample recipe description",
